@@ -1,0 +1,3 @@
+class MainCity extends BaseScene {
+    
+}
