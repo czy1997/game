@@ -53,7 +53,7 @@ var Swordsman = (function (_super) {
         else {
             Swordsman.getPerson.x = Swordsman.getPerson.x > GameUtil.getStageWidth() / 2 ? GameUtil.getStageWidth() - Swordsman.getPerson.width - 1 : 1;
         }
-        if (Swordsman.getPerson.y >= -Swordsman.getPerson.width && Swordsman.getPerson.y < GameUtil.getStageHeight() - Swordsman.getPerson.width) {
+        if (Swordsman.getPerson.y >= 0 && Swordsman.getPerson.y < GameUtil.getStageHeight() - Swordsman.getPerson.height) {
             if (speedX >= 0 && speedY >= 0) {
                 Swordsman.getPerson.y -= speedY;
             }

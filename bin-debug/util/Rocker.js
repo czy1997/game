@@ -12,8 +12,7 @@ var Rocker = (function (_super) {
     __extends(Rocker, _super);
     function Rocker(stage) {
         var _this = _super.call(this) || this;
-        _this.radius = 90; // 摇杆可活动范围的半径
-        console.log(1);
+        _this.radius = 50; // 摇杆可活动范围的半径
         _this._stage = stage;
         _this.init();
         return _this;
@@ -57,14 +56,14 @@ var Rocker = (function (_super) {
         this.area.graphics.beginFill(0x000000);
         this.area.graphics.drawCircle(0, 0, this.radius);
         this.area.graphics.endFill();
-        this.area.x = GameUtil.getStageWidth() * 0.15;
-        this.area.y = GameUtil.getStageHeight() * 0.6;
+        this.area.x = GameUtil.getStageWidth() * 0.2;
+        this.area.y = GameUtil.getStageHeight() * 0.8;
     };
     Rocker.prototype.createCircle = function () {
         this.circle = new egret.Shape();
         this._stage.addChild(this.circle);
         this.circle.graphics.beginFill(0xDC143C);
-        this.circle.graphics.drawCircle(0, 0, 30);
+        this.circle.graphics.drawCircle(0, 0, 15);
         this.circle.graphics.endFill();
         this.circle.x = this.area.x;
         this.circle.y = this.area.y;

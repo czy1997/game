@@ -50,6 +50,19 @@ var LoadingUI = (function (_super) {
         this.textField.width = 480;
         this.textField.height = 100;
         this.textField.textAlign = "center";
+        var w = document.documentElement.clientWidth;
+        var h = document.documentElement.clientHeight;
+        var r = w / h;
+        if (r > 1) {
+            var disW = w;
+            var disH = h;
+        }
+        else {
+            var disW = h;
+            var disH = w;
+        }
+        egret.MainContext.instance.stage.width = disW;
+        egret.MainContext.instance.stage.height = disH;
     };
     LoadingUI.prototype.onProgress = function (current, total) {
         this.textField.text = "Loading..." + current + "/" + total;

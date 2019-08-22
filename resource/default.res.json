@@ -1,21 +1,11 @@
 {
 	"groups": [
 		{
-			"keys": "bg_jpg,egret_icon_png,description_json,person_json,person_png",
+			"keys": "description_json,person_json,person_png,MainCityBg_jpg",
 			"name": "preload"
 		}
 	],
 	"resources": [
-		{
-			"name": "bg_jpg",
-			"type": "image",
-			"url": "assets/bg.jpg"
-		},
-		{
-			"name": "egret_icon_png",
-			"type": "image",
-			"url": "assets/egret_icon.png"
-		},
 		{
 			"name": "description_json",
 			"type": "json",
@@ -30,6 +20,11 @@
 			"name": "person_png",
 			"type": "image",
 			"url": "assets/person.png"
+		},
+		{
+			"name": "MainCityBg_jpg",
+			"type": "image",
+			"url": "assets/MainCityBg.jpg"
 		}
 	]
 }

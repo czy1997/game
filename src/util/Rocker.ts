@@ -2,7 +2,7 @@ class Rocker extends egret.Shape {
     private _stage: egret.DisplayObjectContainer  // 舞台
     private circle: egret.Shape  // 圆球
     private area: egret.Shape  // 摇杆中心圆球可活动的范围
-    private radius: number = 90  // 摇杆可活动范围的半径
+    private radius: number = 50  // 摇杆可活动范围的半径
     private cover:egret.Shape  // 摇杆的可拖动范围（手指可拖动的范围）
     public static speed: number
     public static hudu:number
@@ -12,7 +12,6 @@ class Rocker extends egret.Shape {
     private offsetY: number
     constructor(stage: egret.DisplayObjectContainer) {
         super()
-        console.log(1)
         this._stage = stage
         this.init()
     }
@@ -45,15 +44,15 @@ class Rocker extends egret.Shape {
         this.area.graphics.beginFill(0x000000)
         this.area.graphics.drawCircle(0,0, this.radius)
         this.area.graphics.endFill()
-        this.area.x = GameUtil.getStageWidth() * 0.15
-        this.area.y = GameUtil.getStageHeight() * 0.6
+        this.area.x = GameUtil.getStageWidth() * 0.2
+        this.area.y = GameUtil.getStageHeight() * 0.8
     }
 
     private createCircle() {
         this.circle = new egret.Shape()
         this._stage.addChild(this.circle)
         this.circle.graphics.beginFill(0xDC143C)
-        this.circle.graphics.drawCircle(0, 0, 30)
+        this.circle.graphics.drawCircle(0, 0, 15)
         this.circle.graphics.endFill()
         this.circle.x = this.area.x
         this.circle.y = this.area.y

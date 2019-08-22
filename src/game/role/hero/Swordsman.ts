@@ -41,7 +41,7 @@ class Swordsman extends egret.Sprite {
            Swordsman.getPerson.x = Swordsman.getPerson.x > GameUtil.getStageWidth() / 2 ?  GameUtil.getStageWidth() - Swordsman.getPerson.width -1 : 1
         }
 
-        if(Swordsman.getPerson.y >= -Swordsman.getPerson.width && Swordsman.getPerson.y < GameUtil.getStageHeight() - Swordsman.getPerson.width ) { 
+        if(Swordsman.getPerson.y >= 0 && Swordsman.getPerson.y < GameUtil.getStageHeight() - Swordsman.getPerson.height ) { 
             if( speedX >= 0 && speedY >=0) {
                 Swordsman.getPerson.y -= speedY
             } else if(speedX >= 0 && speedY < 0) {
@@ -53,7 +53,7 @@ class Swordsman extends egret.Sprite {
             }
             
         } else {
-            Swordsman.getPerson.y = Swordsman.getPerson.y > GameUtil.getStageHeight() / 2 ?  GameUtil.getStageHeight() - Swordsman.getPerson.height -1 : 1
+            Swordsman.getPerson.y = Swordsman.getPerson.y > GameUtil.getStageHeight() / 2 ?  GameUtil.getStageHeight() - Swordsman.getPerson.height -1 : 1  
         }
         
     }
