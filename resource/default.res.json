@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,person_json,person_png,MainCityBg_jpg",
+			"keys": "description_json,person_json,person_png,MainCityBg_jpg,mcB1_png,sky_png",
 			"name": "preload"
 		}
 	],
@@ -25,6 +25,16 @@
 			"name": "MainCityBg_jpg",
 			"type": "image",
 			"url": "assets/MainCityBg.jpg"
+		},
+		{
+			"name": "mcB1_png",
+			"type": "image",
+			"url": "assets/mcB1.png"
+		},
+		{
+			"name": "sky_png",
+			"type": "image",
+			"url": "assets/sky.png"
 		}
 	]
 }

@@ -9,13 +9,13 @@
 	],
 	"game": [
 		"bin-debug/game/scene/BaseScene.js",
+		"bin-debug/game/scene/MainCity.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
 		"bin-debug/game/GameData.js",
 		"bin-debug/game/SceneController.js",
 		"bin-debug/game/role/hero/Swordsman.js",
-		"bin-debug/game/scene/MainCity.js",
 		"bin-debug/util/GameUtil.js",
 		"bin-debug/util/Rocker.js"
 	]

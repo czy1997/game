@@ -40,18 +40,19 @@ class Rocker extends egret.Shape {
     private createArea() {
         this.area = new egret.Shape()
         this._stage.addChild(this.area)
-        this.area.graphics.lineStyle(5, 0xDC143C)
-        this.area.graphics.beginFill(0x000000)
+        this.area.zIndex = 99
+        this.area.graphics.beginFill(0x000000, 0.5)
         this.area.graphics.drawCircle(0,0, this.radius)
         this.area.graphics.endFill()
-        this.area.x = GameUtil.getStageWidth() * 0.2
-        this.area.y = GameUtil.getStageHeight() * 0.8
+        this.area.x = GameUtil.getStageWidth() * 0.15
+        this.area.y = GameUtil.getStageHeight() * 0.6
     }
 
     private createCircle() {
         this.circle = new egret.Shape()
         this._stage.addChild(this.circle)
-        this.circle.graphics.beginFill(0xDC143C)
+        this.circle.zIndex = 99
+        this.circle.graphics.beginFill(0xffffff, 0.5)
         this.circle.graphics.drawCircle(0, 0, 15)
         this.circle.graphics.endFill()
         this.circle.x = this.area.x
@@ -59,6 +60,7 @@ class Rocker extends egret.Shape {
 
         this.cover = new egret.Shape()
         this._stage.addChild(this.cover)
+        this.cover.zIndex = 99
         this.cover.graphics.beginFill(0x000, 0)
         this.cover.graphics.drawRect(0, 0, GameUtil.getStageWidth() / 2, GameUtil.getStageHeight())
         this.cover.graphics.endFill()

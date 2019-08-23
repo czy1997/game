@@ -139,6 +139,7 @@ var Main = (function (_super) {
      */
     Main.prototype.createGameScene = function () {
         var container = new egret.DisplayObjectContainer();
+        container.sortableChildren = true;
         this.addChild(container);
         SceneController.setStage = container;
         SceneController.mainCity();

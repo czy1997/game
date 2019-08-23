@@ -88,6 +88,7 @@ class Main extends egret.DisplayObjectContainer {
      */
     private createGameScene() {
         let container:egret.DisplayObjectContainer = new egret.DisplayObjectContainer()
+        container.sortableChildren = true
         this.addChild(container)
         SceneController.setStage = container
         SceneController.mainCity()

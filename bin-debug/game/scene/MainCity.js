@@ -17,18 +17,22 @@ var MainCity = (function (_super) {
         return _this;
     }
     MainCity.prototype.initMap = function () {
-        // this.bg = GameUtil.createBitmapByName('MainCityBg', 'jpg')
-        // this.addChild(this.bg)
-        // let ratioW = GameUtil.getStageWidth() / this.bg.width;
-        // let ratioH = GameUtil.getStageHeight() / this.bg.height;
-        // let ratio = this.bg.width / this.bg.height;
-        // if(ratioW > ratioH) {
-        //     this.bg.width = GameUtil.getStageWidth();
-        //     this.bg.width = this.bg.width / ratio;
-        // } else {
-        //     this.bg.height = GameUtil.getStageHeight();
-        //     this.bg.width = this.bg.height * ratio
-        // }
+        this.bg = new egret.DisplayObjectContainer();
+        this.addChild(this.bg);
+        this.bg.width = 2000;
+        this.sky = GameUtil.createBitmapByName('sky');
+        this.sky.height = GameUtil.getStageHeight();
+        this.sky.fillMode = egret.BitmapFillMode.REPEAT;
+        this.sky.y = 0;
+        this.sky.x = 0;
+        this.sky.zIndex = 0;
+        this.bg.addChild(this.sky);
+        this.floor = GameUtil.createBitmapByName('mcB1');
+        this.floor.fillMode = egret.BitmapFillMode.REPEAT;
+        this.floor.height = GameUtil.getStageHeight() / 2;
+        this.floor.y = GameUtil.getStageHeight() / 2;
+        this.floor.zIndex = 1;
+        this.bg.addChild(this.floor);
     };
     return MainCity;
 }(BaseScene));

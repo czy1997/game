@@ -20,6 +20,7 @@ var Swordsman = (function (_super) {
         get: function () {
             if (!this.person) {
                 this.person = new egret.MovieClip();
+                this.person.zIndex = 98;
                 this.person.movieClipData = GameUtil.createMovieClipByName('person').movieClipData;
             }
             return this.person;
@@ -33,6 +34,7 @@ var Swordsman = (function (_super) {
         Swordsman.getPerson.y = GameUtil.getStageHeight() / 3;
     };
     Swordsman.move = function () {
+        console.log(n.GameData.scene);
         var speedX = Math.sin(Rocker.hudu) * (Math.sqrt(Rocker.speed) > 150 ? 150 / 100 : (Math.sqrt(Rocker.speed) / 100));
         var speedY = Math.cos(Rocker.hudu) * (Math.sqrt(Rocker.speed) > 150 ? 150 / 100 : (Math.sqrt(Rocker.speed) / 100));
         // 判断人物是否在屏幕范围内
@@ -51,9 +53,9 @@ var Swordsman = (function (_super) {
             }
         }
         else {
-            Swordsman.getPerson.x = Swordsman.getPerson.x > GameUtil.getStageWidth() / 2 ? GameUtil.getStageWidth() - Swordsman.getPerson.width - 1 : 1;
+            Swordsman.getPerson.x = Swordsman.getPerson.x > GameUtil.getStageWidth() / 2 ? GameUtil.getStageWidth() - Swordsman.getPerson.width : 0;
         }
-        if (Swordsman.getPerson.y >= 0 && Swordsman.getPerson.y < GameUtil.getStageHeight() - Swordsman.getPerson.height) {
+        if (Swordsman.getPerson.y >= GameUtil.getStageHeight() / 2 - Swordsman.getPerson.height && Swordsman.getPerson.y < GameUtil.getStageHeight() - Swordsman.getPerson.height) {
             if (speedX >= 0 && speedY >= 0) {
                 Swordsman.getPerson.y -= speedY;
             }
@@ -68,7 +70,7 @@ var Swordsman = (function (_super) {
             }
         }
         else {
-            Swordsman.getPerson.y = Swordsman.getPerson.y > GameUtil.getStageHeight() / 2 ? GameUtil.getStageHeight() - Swordsman.getPerson.height - 1 : 1;
+            Swordsman.getPerson.y = Swordsman.getPerson.y > GameUtil.getStageHeight() / 2 ? GameUtil.getStageHeight() - Swordsman.getPerson.height : GameUtil.getStageHeight() / 2 - Swordsman.getPerson.height;
         }
     };
     return Swordsman;
