@@ -38,6 +38,17 @@ var GameUtil = (function () {
         var mcFactory_stay = new egret.MovieClipDataFactory(data_stay, texture_stay);
         return new egret.MovieClip(mcFactory_stay.generateMovieClipData(name));
     };
+    /**
+     * 检测传送门碰撞事件
+     */
+    GameUtil.touchDoor = function (person, door, scene) {
+        // console.log(GameUtil.getStageWidth())
+        egret.Ticker.getInstance().register(function (dt) {
+            if ((person.x - MainCity.bg.x) > door.x && (person.y + person.height < door.y + door.height + 20 && person.y + person.height > door.y + door.height - 20)) {
+                SceneController.changeScene(person, door, scene);
+            }
+        }, this);
+    };
     return GameUtil;
 }());
 __reflect(GameUtil.prototype, "GameUtil");

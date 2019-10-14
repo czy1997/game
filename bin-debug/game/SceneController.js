@@ -27,6 +27,29 @@ var SceneController = (function () {
         var person = new Swordsman(this.instance._stage);
         this.instance._stage.addChild(this.instance.MainCity);
     };
+    SceneController.changeScene = function (person, door, scene) {
+        //重新设置人物位置,防止无限检测位置
+        person.x = 0;
+        person.y = GameUtil.getStageHeight() / 2;
+        MainCity.bg.x = 0;
+        var stage = this.instance._stage;
+        var shp = new egret.Shape(); // 黑色遮罩
+        shp.graphics.beginFill(0x000000);
+        shp.graphics.drawRect(0, 0, GameUtil.getStageWidth(), GameUtil.getStageHeight());
+        shp.graphics.endFill();
+        shp.touchEnabled = true;
+        stage.addChild(shp);
+        var _this = this;
+        egret.Tween
+            .get(shp)
+            .to({
+            alpha: 0
+        }, 2000, egret.Ease.sineIn)
+            .call(function () {
+            console.log('完成');
+            stage.removeChild(shp);
+        });
+    };
     return SceneController;
 }());
 __reflect(SceneController.prototype, "SceneController");

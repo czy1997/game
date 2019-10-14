@@ -103,9 +103,9 @@ var Rocker = (function (_super) {
     Rocker.prototype.move = function (e) {
         var x = e.stageX - this.area.x;
         var y = e.stageY - this.area.y;
-        var x2 = Math.pow(x, 2);
-        var y2 = Math.pow(y, 2);
-        Rocker.setSpeed = x2 + y2;
+        var x2 = Math.pow(x, 2); // x的平方
+        var y2 = Math.pow(y, 2); // y的平方
+        var xy2 = x2 + y2;
         var angle = this.getCircleAngel([e.stageX, e.stageY], [this.area.x, this.area.y]);
         Rocker.setHudu = (2 * Math.PI / 360) * (angle);
         if ((x > -10 && x < 10) && (angle < 180 || angle > 360)) {
@@ -114,7 +114,7 @@ var Rocker = (function (_super) {
         else if ((x > -10 && x < 10) && (angle > 180 && angle < 360)) {
             Swordsman.getPerson.gotoAndPlay('left', -1);
         }
-        if (Rocker.getSpeed <= Math.pow(this.radius, 2)) {
+        if (xy2 <= Math.pow(this.radius, 2)) {
             this.circle.x = e.stageX - this.offsetX;
             this.circle.y = e.stageY - this.offsetY;
         }
@@ -144,6 +144,7 @@ var Rocker = (function (_super) {
             return tan > 0 ? (point[0] > dot[0] ? angle + 90 : angle + 270) : (point[0] > dot[0] ? angle + 450 : angle + 270);
         }
     };
+    Rocker.speed = 1.5;
     return Rocker;
 }(egret.Shape));
 __reflect(Rocker.prototype, "Rocker");

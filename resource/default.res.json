@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,person_json,person_png,MainCityBg_jpg,mcB1_png,sky_png",
+			"keys": "description_json,person_json,person_png,MainCityBg_jpg,mcB1_png,sky_png,MainCityGuide_png,MainCityDoor1_png,MainCityWall_png,MainCityDoor_png,MainCityDoor2_png",
 			"name": "preload"
 		}
 	],
@@ -35,6 +35,31 @@
 			"name": "sky_png",
 			"type": "image",
 			"url": "assets/sky.png"
+		},
+		{
+			"name": "MainCityWall_png",
+			"type": "image",
+			"url": "assets/MainCityWall.png"
+		},
+		{
+			"name": "MainCityDoor_png",
+			"type": "image",
+			"url": "assets/MainCityDoor.png"
+		},
+		{
+			"name": "MainCityDoor1_png",
+			"type": "image",
+			"url": "assets/MainCityDoor1.png"
+		},
+		{
+			"name": "MainCityDoor2_png",
+			"type": "image",
+			"url": "assets/MainCityDoor2.png"
+		},
+		{
+			"name": "MainCityGuide_png",
+			"type": "image",
+			"url": "assets/MainCityGuide.png"
 		}
 	]
 }

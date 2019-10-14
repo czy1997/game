@@ -34,28 +34,53 @@ var Swordsman = (function (_super) {
         Swordsman.getPerson.y = GameUtil.getStageHeight() / 3;
     };
     Swordsman.move = function () {
-        console.log(n.GameData.scene);
-        var speedX = Math.sin(Rocker.hudu) * (Math.sqrt(Rocker.speed) > 150 ? 150 / 100 : (Math.sqrt(Rocker.speed) / 100));
-        var speedY = Math.cos(Rocker.hudu) * (Math.sqrt(Rocker.speed) > 150 ? 150 / 100 : (Math.sqrt(Rocker.speed) / 100));
+        var speedX = Math.sin(Rocker.hudu) * Rocker.speed;
+        var speedY = Math.cos(Rocker.hudu) * Rocker.speed;
         // 判断人物是否在屏幕范围内
-        if ((Swordsman.getPerson.x >= 0 && Swordsman.getPerson.x < GameUtil.getStageWidth() - Swordsman.getPerson.width)) {
-            if (speedX >= 0 && speedY >= 0) {
-                Swordsman.getPerson.x += speedX;
+        if ((Swordsman.getPerson.x >= 0 && Swordsman.getPerson.x < (GameUtil.getStageWidth() - Swordsman.getPerson.width))) {
+            // 判断人物在屏幕中间的时候,背景是否大于屏幕宽度，如果大于就让背景移动，人物不懂
+            if (Swordsman.getPerson.x <= (GameUtil.getStageWidth() / 2 + Swordsman.getPerson.width) && Swordsman.getPerson.x >= (GameUtil.getStageWidth() / 2 - Swordsman.getPerson.width)) {
+                // 判断人物走动方向，并且根据背景的坐标和宽度确定是否还可以移动背景
+                if (speedX >= 0 && (MainCity.bg.x + MainCity.bg.width) >= GameUtil.getStageWidth()) {
+                    MainCity.bg.x -= speedX;
+                }
+                else if (speedX < 0 && (MainCity.bg.x + 10) <= 0) {
+                    MainCity.bg.x -= speedX;
+                }
+                else {
+                    if (speedX >= 0 && speedY >= 0) {
+                        Swordsman.getPerson.x += speedX;
+                    }
+                    else if (speedX >= 0 && speedY < 0) {
+                        Swordsman.getPerson.x += speedX;
+                    }
+                    else if (speedX < 0 && speedY < 0) {
+                        Swordsman.getPerson.x += speedX;
+                    }
+                    else if (speedX < 0 && speedY >= 0) {
+                        Swordsman.getPerson.x += speedX;
+                    }
+                }
             }
-            else if (speedX >= 0 && speedY < 0) {
-                Swordsman.getPerson.x += speedX;
-            }
-            else if (speedX < 0 && speedY < 0) {
-                Swordsman.getPerson.x += speedX;
-            }
-            else if (speedX < 0 && speedY >= 0) {
-                Swordsman.getPerson.x += speedX;
+            else {
+                if (speedX >= 0 && speedY >= 0) {
+                    Swordsman.getPerson.x += speedX;
+                }
+                else if (speedX >= 0 && speedY < 0) {
+                    Swordsman.getPerson.x += speedX;
+                }
+                else if (speedX < 0 && speedY < 0) {
+                    Swordsman.getPerson.x += speedX;
+                }
+                else if (speedX < 0 && speedY >= 0) {
+                    Swordsman.getPerson.x += speedX;
+                }
             }
         }
         else {
-            Swordsman.getPerson.x = Swordsman.getPerson.x > GameUtil.getStageWidth() / 2 ? GameUtil.getStageWidth() - Swordsman.getPerson.width : 0;
+            Swordsman.getPerson.x = Swordsman.getPerson.x > GameUtil.getStageWidth() / 2 ? (GameUtil.getStageWidth() - Swordsman.getPerson.width) - 1 : 0;
         }
-        if (Swordsman.getPerson.y >= GameUtil.getStageHeight() / 2 - Swordsman.getPerson.height && Swordsman.getPerson.y < GameUtil.getStageHeight() - Swordsman.getPerson.height) {
+        if (Swordsman.getPerson.y >= GameUtil.getStageHeight() / 2 - Swordsman.getPerson.height && Swordsman.getPerson.y <= GameUtil.getStageHeight() - Swordsman.getPerson.height) {
             if (speedX >= 0 && speedY >= 0) {
                 Swordsman.getPerson.y -= speedY;
             }

@@ -93,5 +93,5 @@ class Main extends egret.DisplayObjectContainer {
         SceneController.setStage = container
         SceneController.mainCity()
     }
-
+    
 }

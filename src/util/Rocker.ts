@@ -4,7 +4,7 @@ class Rocker extends egret.Shape {
     private area: egret.Shape  // 摇杆中心圆球可活动的范围
     private radius: number = 50  // 摇杆可活动范围的半径
     private cover:egret.Shape  // 摇杆的可拖动范围（手指可拖动的范围）
-    public static speed: number
+    public static speed: number =  1.5
     public static hudu:number
     private clock: egret.Timer
     private person: egret.MovieClip 
@@ -97,9 +97,9 @@ class Rocker extends egret.Shape {
     private move(e:egret.TouchEvent):void { 
         let x = e.stageX - this.area.x 
         let y = e.stageY - this.area.y
-        let x2 = Math.pow(x, 2)
-        let y2 = Math.pow(y, 2)
-        Rocker.setSpeed = x2 + y2
+        let x2 = Math.pow(x, 2)  // x的平方
+        let y2 = Math.pow(y, 2)  // y的平方
+        let xy2 = x2 + y2
         let angle = this.getCircleAngel([e.stageX ,e.stageY], [this.area.x, this.area.y])
         Rocker.setHudu = (2 * Math.PI / 360) *(angle); 
          if((x > -10 && x< 10) && (angle < 180 || angle > 360 )) {
@@ -107,7 +107,7 @@ class Rocker extends egret.Shape {
         } else if ((x > -10 && x < 10) && (angle >180 && angle <360 )) {
             Swordsman.getPerson.gotoAndPlay('left', -1)
         }
-        if(Rocker.getSpeed <= Math.pow(this.radius,2)) {
+        if(xy2 <= Math.pow(this.radius,2)) {
             this.circle.x = e.stageX - this.offsetX 
             this.circle.y = e.stageY - this.offsetY
         }  else {

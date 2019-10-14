@@ -37,5 +37,15 @@ class GameUtil{
         return new egret.MovieClip(mcFactory_stay.generateMovieClipData(name))
     }
 
-    
+    /**
+     * 检测传送门碰撞事件
+     */
+    public static touchDoor(person:egret.MovieClip, door:egret.Bitmap, scene:egret.DisplayObjectContainer):any {
+        // console.log(GameUtil.getStageWidth())
+        egret.Ticker.getInstance().register(function(dt){
+            if((person.x - MainCity.bg.x) > door.x && (person.y + person.height < door.y + door.height + 20 && person.y + person.height > door.y + door.height -20)) {
+                SceneController.changeScene(person,door,scene)
+            }
+        }, this)
+    }
 }
